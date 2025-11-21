@@ -20,17 +20,14 @@ class NoteAdapter(private var notes: List<Note>) :
         return NoteViewHolder(view)
     }
 
-    // Puts data into each row
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val note = notes[position]
         holder.title.text = note.title
         holder.category.text = note.notecategory
     }
 
-    // Number of items in the list
     override fun getItemCount() = notes.size
 
-    // Update the list when filtering or showing all
     fun updateList(newList: List<Note>) {
         notes = newList
         notifyDataSetChanged()
